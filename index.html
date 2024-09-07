@@ -16,182 +16,146 @@
     />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Cracow home</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Truck-trans</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav me-auto mb-2 ml-auto mb-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" onclick="smoothScroll('#forsale')">For Sale</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" onclick="smoothScroll('#forrent')">For Rent</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" onclick="smoothScroll('footer')">Home</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  onclick="smoothScroll('#trucks')">Flota</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="smoothScroll('#drivers')">Kierowcy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="smoothScroll('footer')">Kontakt</a>
+                </li>
+            </ul>
         </div>
-      </div>
     </nav>
+
+    <!--navbar-->
     <!--header-->
     <header class="masthead">
-      <div class="container h-100">
-        <div class="row h-100 align-items-center">
-          <div class="col-12 text-center">
-            <button class="col-4 p-2">LIVE IN Cracow</button>
-          </div>
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center">
+                    <button class="col-lg-4 col-sm-10 p-4" onclick="smoothScroll('#trucks')">POZNAJ NAS</button>
+                </div>
+            </div>
         </div>
-      </div>
+
     </header>
     <!--header-->
-    <section id="forsale" class="text-dark">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h1 class="text-center p-4 mb-3 mt-3">Homes for sale</h1>
-          </div>
+    <!--trucks-->
+    <section id="trucks">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center p-4 mb-3 mt-3">NASZA FLOTA</h1>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center p-5">
+            <?php
+            
+                $rows = generate_cards("trucks");
+                
+                foreach($rows as $r) {
+                    echo "<div class='col-lg-3 m-1'>
+                    <div class='card'>
+                    <img src='assets/".$r['photo_url']."' alt='truck'>
+                    <div class='card-body'>
+                    <h4 class = 'text-center p-3'>".$r['name']."</h4>
+                    <p class='text-center'>".$r['description']."</p>
+                    </div>
+                    </div>
+                    </div>
+                    ";
+                }
+            
+            ?>
+
+                
+            </div>
         </div>
-        <div class="row d-flex justify-content-center p-4">
-          <div class="col-4">
-            <div class="card">
-              <img src="assets/Krakow.jpg" alt="home 1" />
-              <div class="card-body">
-                <h4 class="text-center p-3">HOME OPIS 1</h4>
-                <p>Mieszkanie nr 1</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="card">
-              <img src="assets/Krakow.jpg" alt="home 1" />
-              <div class="card-body">
-                <h4 class="text-center p-3">HOME OPIS 2</h4>
-                <p>Mieszkanie nr 2</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="card">
-              <img src="assets/Krakow.jpg" alt="home 1" />
-              <div class="card-body">
-                <h4 class="text-center p-3">HOME OPIS 3</h4>
-                <p>Mieszkanie nr 3</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
-    <section id="forrent">
-      <div class="container-fluid bg-dark">
-        <div class="row">
-          <div class="col-12 p-4">
-            <h1 class="text-center text-light p-4">Homes for rent</h1>
-          </div>
+    <!--trucks-->
+    <!--drivers-->
+    <section id="drivers">
+        <div class="container-fluid bg-dark">
+            <div class="row">
+                <div class="col-12 p-4">
+                    <h1 class="text-center text-light p-4">NASI KIEROWCY</h1>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center p-4">
+              
+                <?php
+                $rows = generate_cards("drivers");
+                
+                foreach($rows as $r) {
+                    echo "<div class='col-lg-3 col-md-5 m-3'>
+                    <div class='avatar mx-auto'>
+                    <img src='assets/".$r['photo_url']."' class='w-100 rounded-circle' alt='kierowca'>
+                    </div>
+                    <h5 class='font-weight-bold mt-3 mb-3 text-center text-light'>".$r['name']."</h5>
+                    <p class='text-light text-center'>".$r['description']."</p>
+                    </div>
+                    ";
+                }
+                ?>
+
+                
+            </div>
         </div>
-        <div class="row display-flex justify-content-center p-4">
-          <div class="col-3 m-3">
-            <div class="avatar mx-auto">
-              <img
-                src="assets/Krakow.jpg"
-                class="w-100 rounded-circle"
-                alt="for rent"
-              />
-            </div>
-            <h5 class="font-weight-bold mt-3 mb-3 text-center text-light">
-              Nazwa
-            </h5>
-            <p class="text-light">Opis mieszkania</p>
-          </div>
-          <div class="col-3 m-3">
-            <div class="avatar mx-auto">
-              <img
-                src="assets/Krakow.jpg"
-                class="w-100 rounded-circle"
-                alt="for rent"
-              />
-            </div>
-            <h5 class="font-weight-bold mt-3 mb-3 text-center text-light">
-              Nazwa
-            </h5>
-            <p class="text-light">Opis mieszkania</p>
-          </div>
-          <div class="col-3 m-3">
-            <div class="avatar mx-auto">
-              <img
-                src="assets/Krakow.jpg"
-                class="w-100 rounded-circle"
-                alt="for rent"
-              />
-            </div>
-            <h5 class="font-weight-bold mt-3 mb-3 text-center text-light">
-              Nazwa
-            </h5>
-            <p class="text-light">Opis mieszkania</p>
-          </div>
-        </div>
-      </div>
     </section>
+    <!--drivers-->
     <!--footer-->
     <footer class="page-footer font-small pt-3">
-      <div class="container">
-        <div class="row p-4 d-flex justify-content-between">
-          <div class="col-3">
-            <h5 class="font-weight-bold">sdsdsd</h5>
-            <p>
-              Ogłoszenia internetowe. Wybierze i zamieszkaj w myarzonym miejscu.
-            </p>
-          </div>
-          <div class="col-4">
-            <p>
-              <i class="fa fa-phone pr-4" style="font-size: 24px"></i> + 48 100100100
-            </p>
+        <div class="container">
+            <div class="row p-4 d-flex justify-content-between">
+                <div class="col-lg-3">
+                    <h5 class="font-weight-bold">Truck-trans</h5>
+                    <p>
+                        Firma dzialajaca od 20 lat na polskim rynku. Swiatowy potentat w branzy transportowej.
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <p>
+                        <i class="fa fa-phone pr-4" style="font-size:24px"></i> +48 000 000 000
+                    </p>
+                    <p>
+                        <i class="fa fa-envelope-o pr-4" style="font-size:24px"></i> nasz@adres.pl
+                    </p>
 
-            <p>
-              <i class="fa fa-envelope pr-4" style="font-size: 24px"></i>
-              asda@sas.com
-            </p>
-            <p>
-              <i class="fa fa-bus pr-4" style="font-size:24px"></i>
-              ul.Polna 11, Kraków
-            </p>
-          </div>
+                    <p>
+                        <i class="fa fa-home pr-4" style="font-size:24px"></i> ul.Polna 12 Warszawa
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h6 class="text-center"> Copyright: XYZ</h6>
+                </div>
+            </div>
         </div>
-        <div class="row">
-          <dov class="col-12">
-            <h6 class="text-center">Copyright: XVZ</h6>
-          </dov>
-        </div>
-      </div>
     </footer>
+    <!--footer-->
+    <!-- Optional JavaScript -->
+    <script src="js/myScript.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="js/myScript.js"></script>
+  
   </body>
 </html>
