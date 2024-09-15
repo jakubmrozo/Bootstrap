@@ -2,22 +2,38 @@
 
 require_once('sql_connect.php');
 
-function generate_table($param) {
+function generate_dashboard() {
     global $mysqli;
 
-    if($param == "trucks") {
+    $sql = "SELECT trucks.name AS truck, drivers.name AS driver
+    FROM trucks
+    INNER JOIN drivers
+    ON trucks.driver_id = drivers.id;";
+
+    $result = $mysqli->query($sql);
+
+    $rows = $result->fetch_all(MYSQLI_ASSOC);
+
+   return $rows;
+  
+       
+}
+
+function generate_trucks() {
     
-        $sql = "SELECT id, name FROM trucks";
+    global $mysqli;
+
     
-    } else {
-        $sql = "SELECT id, name FROM drivers";
-    }
+    $sql = "SELECT id, name FROM trucks";
+    
+   
     $result = $mysqli->query($sql);
 
     $rows = $result->fetch_all(MYSQLI_ASSOC);
 
     return $rows;
 }
+
 
 function delete($param, $id) {
     global $mysqli;
