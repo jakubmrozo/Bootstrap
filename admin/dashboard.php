@@ -72,14 +72,14 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
                     </thead>
                     <tbody>
                     <?php
-                        $rows = generate_trucks();
+                        $rows = generate_table('trucks');
 
                         for($i=0;$i<count($rows);$i++) {
                             echo "<tr>";
                             echo "<th scope='col'>".($i+1)."</th>";
                             echo "<td>".$rows[$i]['name']."</td>";
                             echo "<td> <button class='btn btn-danger' onclick='(function(){
-                                        location.href = \"delete/delete_truck.php?id=".$rows[$i]['id']."\"})'>X</button>";
+                                        location.href = \"delete/delete_truck.php?id=".$rows[$i]['id']."\"})()'>X</button>";
                             echo "</tr>";
                                   
                         }
@@ -102,9 +102,16 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
                             <div class="mt-3">
                             Kierowca: <select name="driver" id="driver">
                                 <option value="">Kierowca</option>
-                                <option value="1">Jan</option>
-                                <option value="2">Tomasz</option>
-                                <option value="3">Michał</option>
+
+                                <?php
+                             $rows = generate_table('drivers');
+
+                             for($i=0;$i<count($rows);$i++) {
+                                echo "<option value=\"".$rows[$i]['id']."\">".$rows[$i]['name']."</option>";
+                              
+                                  
+                        }
+                    ?>
                             </select>
                             </div>
                         </div>
@@ -121,23 +128,19 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <th scope="col">Marek</th>
-                            <td scope="col"><button class="btn btn-danger">X</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <th scope="col">Jan</th>
-                            <th scope="col"><button class="btn btn-danger">X</button></th>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <th scope="col">Michał</th>
-                            <th scope="col"><button class="btn btn-danger" onClick="(function(){
-                            location.href = 'delete/delete_driver.php?id=4'
-                            })()">X</button></th>
-                        </tr>
+                    <?php
+                        $rows = generate_table('drivers');
+
+                        for($i=0;$i<count($rows);$i++) {
+                            echo "<tr>";
+                            echo "<th scope='col'>".($i+1)."</th>";
+                            echo "<td>".$rows[$i]['name']."</td>";
+                            echo "<td> <button class='btn btn-danger' onclick='(function(){
+                                        location.href = \"delete/delete_driver.php?id=".$rows[$i]['id']."\"})()'>X</button>";
+                            echo "</tr>";
+                                  
+                        }
+                    ?>
                     </tbody>
                 </table>
                 <form action="drivers.php" enctype="multipart/form-data" method="POST" class="text-white d-flex justify-content-between align-items-center">

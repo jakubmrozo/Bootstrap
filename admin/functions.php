@@ -19,14 +19,16 @@ function generate_dashboard() {
        
 }
 
-function generate_trucks() {
-    
+function generate_table($param) {
     global $mysqli;
 
+    if($param == "trucks") {
     
-    $sql = "SELECT id, name FROM trucks";
+        $sql = "SELECT id, name FROM trucks";
     
-   
+    } else {
+        $sql = "SELECT id, name FROM drivers";
+    }
     $result = $mysqli->query($sql);
 
     $rows = $result->fetch_all(MYSQLI_ASSOC);

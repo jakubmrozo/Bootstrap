@@ -2,7 +2,7 @@
    if(!empty($_POST)) {
        $name = trim($_POST['truck']);
        $driver_id = trim($_POST['driver']);
-        $description = trim($_POST['descritpion']);
+        $description = trim($_POST['description']);
 
        
 
