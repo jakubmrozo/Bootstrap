@@ -1,11 +1,10 @@
 <?php
    if(!empty($_POST)) {
-       $name = $_POST['truck'];
-       $driver = $_POST['driver'];
-   }
-        
+       $name = trim($_POST['truck']);
+       $driver_id = trim($_POST['driver']);
+        $description = trim($_POST['descritpion']);
 
-
+       
 
 
        if(!empty($_FILES)){
@@ -27,10 +26,36 @@
         }
      
         if(move_uploaded_file($_FILES['photo_truck']['tmp_name'],$targetFile)){
-            echo "OKfff";
+           // echo "OKfff";
+           require_once('sql_connect.php');
+
+           $sql = "INSERT INTO trucks (name,photo_url,description,driver_id) VALUES (?,?,?,?) ";
+
+        if($statement = $mysqli->prepare($sql)) {
+             
+            if($statement->bind_param('sssi',$name, $targetFile, $description,$driver_id)){
+                if($statement->execute()){
+                header("Location:dashboard.php");
+            } else {
+                die('Error');
+            }
+           }       
+           } else {
+               die('incorrent query!');
+           }
+      }
         } else {
             die('nie jest ok');
         }
         }
+
+
+       
+        
+
+
+
+
+
      
 ?>

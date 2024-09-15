@@ -1,3 +1,11 @@
+<?php
+session_start();
+require_once('functions.php');
+if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
+    die('No access avalible!');
+}
+?>
+
 <!doctype html>
 </body>
 <html lang="pl">
@@ -84,15 +92,21 @@
                 </table>
                 <form action="trucks.php" enctype="multipart/form-data" method="POST" class="text-white d-flex justify-content-between align-items-center">
                         <div id="forms">
-                            Nazwa: <input type="text" name="truck" id="truck" class="form-control mb-3 col-8"
+                            <p>Nazwa: <input type="text" name="truck" id="truck" class="form-control mb-3 col-8"
                             placeholder="Nazwa" required>
+                            </p>
+                            <p>
+                            <textarea name="description" id="description" cols="30" rows="3" placeholder="Opis" ></textarea>
+                           </p>
+                           <p>
                             Zdjęcie: <input type="file" name="photo_truck" id="photo_truck" required>
+                            </p>
                             <div class="mt-3">
                             Kierowca: <select name="driver" id="driver">
                                 <option value="">Kierowca</option>
-                                <option value="jan">Jan</option>
-                                <option value="tomasz">Tomasz</option>
-                                <option value="michal">Michał</option>
+                                <option value="1">Jan</option>
+                                <option value="2">Tomasz</option>
+                                <option value="3">Michał</option>
                             </select>
                             </div>
                         </div>
@@ -126,19 +140,19 @@
                         </tr>
                     </tbody>
                 </table>
-                <form action="drivers.php" enctype="multipart/form-data" method="POST" text-white d-flex justify-content-between align-items-center">
+                <form action="drivers.php" enctype="multipart/form-data" method="POST" class="text-white d-flex justify-content-between align-items-center">
                         <div id="forms">
+                            <p>
                             Imię: <input type="text" name="driver" id="driver" 
                             placeholder="Imię" required>
+                            </p>
+                            <p>
+                            <textarea name="description" id="description" cols="30" rows="3" placeholder="Opis" ></textarea>
+                            </p>
+                            <p>
                             Zdjęcie: <input type="file" name="photo_driver"  id="photo_driver" reguired>
-                            <div class="mt-3">
-                                Ciezarowka: <select name="truck" id="truck">
-                                    <option value="">Ciezarowka</option>
-                                    <option value="scania">Scania</option>
-                                    <option value="renalut">Reanlut</option>
-                                    <option value="man">MAN</option>
-                                </select>
-                            </div>
+                            </p>
+                           
                         </div>
                     <button class="btn btn-success">DODAJ</button>
                 </form>
