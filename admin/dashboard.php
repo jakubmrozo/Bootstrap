@@ -74,19 +74,21 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Scania</td>
-                            <td><button class="btn btn-danger">X</button></td>
+                            <th scope="col">1</th>
+                            <th scope="col">Scania</th>
+                            <th scope="col"><button class="btn btn-danger" onClick='(function(){
+                            location.href = "delete/delete_truck.php?id=4"
+                            })()'>X</button></th>
                         </tr>
                         <tr>
-                            <th scope="row">2</th>
-                            <td>Renault</td>
-                            <td><button class="btn btn-danger">X</button></td>
+                            <th scope="col">2</th>
+                            <th scope="col">Renault</th>
+                            <th scope="col"><button class="btn btn-danger">X</button></th>
                         </tr>
                         <tr>
-                            <th scope="row">3</th>
-                            <td>MAN</td>
-                            <td><button class="btn btn-danger">X</button></td>
+                            <th scope="col">3</th>
+                            <th scope="col">MAN</th>
+                            <th scope="col"><button class="btn btn-danger">X</button></th>
                         </tr>
                     </tbody>
                 </table>
@@ -125,18 +127,20 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
                     <tbody>
                         <tr>
                             <th scope="row">1</th>
-                            <td>Marek</td>
-                            <td><button class="btn btn-danger">X</button></td>
+                            <th scope="col">Marek</th>
+                            <td scope="col"><button class="btn btn-danger">X</button></td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
-                            <td>Jan</td>
-                            <td><button class="btn btn-danger">X</button></td>
+                            <th scope="col">Jan</th>
+                            <th scope="col"><button class="btn btn-danger">X</button></th>
                         </tr>
                         <tr>
                             <th scope="row">3</th>
-                            <td>Michał</td>
-                            <td><button class="btn btn-danger">X</button></td>
+                            <th scope="col">Michał</th>
+                            <th scope="col"><button class="btn btn-danger" onClick="(function(){
+                            location.href = 'delete/delete_driver.php?id=4'
+                            })()">X</button></th>
                         </tr>
                     </tbody>
                 </table>
