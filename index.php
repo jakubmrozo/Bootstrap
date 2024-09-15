@@ -1,3 +1,8 @@
+<?php
+    require_once('admin/functions.php');
+?>
+
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -70,7 +75,7 @@
                 foreach($rows as $r) {
                     echo "<div class='col-lg-3 m-1'>
                     <div class='card'>
-                    <img src='assets/".$r['photo_url']."' alt='truck'>
+                    <img src='admin/".$r['photo_url']."' alt='truck'>
                     <div class='card-body'>
                     <h4 class = 'text-center p-3'>".$r['name']."</h4>
                     <p class='text-center'>".$r['description']."</p>
@@ -103,7 +108,7 @@
                 foreach($rows as $r) {
                     echo "<div class='col-lg-3 col-md-5 m-3'>
                     <div class='avatar mx-auto'>
-                    <img src='assets/".$r['photo_url']."' class='w-100 rounded-circle' alt='kierowca'>
+                    <img src='admin/".$r['photo_url']."' class='w-100 rounded-circle' alt='kierowca'>
                     </div>
                     <h5 class='font-weight-bold mt-3 mb-3 text-center text-light'>".$r['name']."</h5>
                     <p class='text-light text-center'>".$r['description']."</p>
