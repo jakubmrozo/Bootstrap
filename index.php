@@ -19,11 +19,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
   </head>
   <body>
     <!--navbar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Truck-trans</a>
+        <a class="navbar-brand" href="#">Transport</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -43,7 +44,13 @@
                     <a class="nav-link" onclick="smoothScroll('footer')">Kontakt</a>
                 </li>
             </ul>
+            <div class="col-12 d-flex  justify-content-left p-3">
+            
+            <a class="ml-auto btn btn-secondary p-1" href="admin/login.html">Zaloguj</a>
+
+    </div>
         </div>
+       
     </nav>
 
     <!--navbar-->
@@ -73,9 +80,9 @@
                 $rows = generate_cards("trucks");
                 
                 foreach($rows as $r) {
-                    echo "<div class='col-lg-3 m-1'>
-                    <div class='card'>
-                    <img src='admin/".$r['photo_url']."' alt='truck'>
+                    echo "<div class='col-lg-3 col-md-5 m-3'>
+                    <div class='avatar mx-auto'>
+                    <img src='admin/".$r['photo_url']."'class='w-100' alt='truck'>
                     <div class='card-body'>
                     <h4 class = 'text-center p-3'>".$r['name']."</h4>
                     <p class='text-center'>".$r['description']."</p>

@@ -18,7 +18,8 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Hello, world!</title>
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <title>Dashboard</title>
     <script src="https://kit.fontawesome.com/0b7d52a410.js"></script>
 
 </head>
@@ -26,7 +27,13 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
 <body>
     <div class="container-fluid">
         <div class="row">
+        <div class="col-12 d-flex bg-dark justify-content-right p-3">
+            
+                <a class="ml-auto btn btn-secondary p-1" href="logout.php">Wyloguj</a>
+
+        </div>
             <h1 class="text-center col-12 bg-dark text-white p-4">Panel Administracyjny</h1>
+            
         </div>
     </div>
     <div class="container mt-5 pb-4">

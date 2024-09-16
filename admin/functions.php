@@ -57,13 +57,21 @@ function delete($param, $id) {
     
     if($param == "trucks"){
         $sql = "DELETE FROM trucks WHERE id = ?";
-       // $sql_2 ="SELECT photo_url FROM trucks WHERE id = ?";
+        $sql_2 ="SELECT photo_url FROM trucks WHERE id = ?";
     } else {
         $sql = "DELETE FROM drivers WHERE id = ?";
-       // $sql_2 ="SELECT photo_url FROM drivers WHERE id = ?";
+        $sql_2 ="SELECT photo_url FROM drivers WHERE id = ?";
     }
 
-  
+    if($statement_2 = $mysqli->prepare($sql_2)){
+        if($statement_2->bind_param('i',$id)){
+            $statement_2->execute();
+            $result = $statement_2->get_result();
+            $row = $result->fetch_row();
+            
+            unlink('../../admin/'.$row[0]);
+        }
+    }
     if($statement = $mysqli->prepare($sql)) {
         if($statement->bind_param('i',$id)) {
             $statement->execute();
