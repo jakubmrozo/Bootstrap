@@ -1,0 +1,48 @@
+header {
+  height: 75vh;
+  min-height: 300px;
+  background-image: url("../assets/Krakow.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+header button {
+  border: 4px solid rgb(253, 253, 253);
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  font-weight: bold;
+}
+header button:hover {
+  background-color: rgb(255, 255, 255);
+  opacity: 0.3;
+  color: rgba(0, 0, 0, 0.5);
+}
+#forsale h1 {
+  border-bottom: 1px solid red;
+}
+.card img {
+  max-height: 250px;
+}
+nav li:hover {
+  cursor: pointer;
+}
+
+.img-fluid {
+height: 30px;
+  opacity: 50;
+  transition-duration: 1.25s;
+  transform: rotate(-720deg);
+}
+
+.img-fluid:hover {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+#accordionExample {
+  --bs-accordion-btn-bg: rgb(24, 105, 152);
+  --bs-accordion-border-color: rgb(1, 32, 71);
+
+}
+

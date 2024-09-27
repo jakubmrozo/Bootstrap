@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('functions.php');
-if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
+if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
     die('No access avalible!');
 }
 ?>
@@ -18,7 +18,8 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <title>Dashboard</title>
     <script src="https://kit.fontawesome.com/0b7d52a410.js"></script>
 
@@ -27,13 +28,13 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
 <body>
     <div class="container-fluid">
         <div class="row">
-        <div class="col-12 d-flex bg-dark justify-content-right p-3">
-            
+            <div class="col-12 d-flex bg-dark justify-content-right p-3">
+
                 <a class="ml-auto btn btn-secondary p-1" href="logout.php">Wyloguj</a>
 
-        </div>
+            </div>
             <h1 class="text-center col-12 bg-dark text-white p-4">Panel Administracyjny</h1>
-            
+
         </div>
     </div>
     <div class="container mt-5 pb-4">
@@ -49,19 +50,19 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
                     </thead>
                     <tbody>
                         <?php
-                         // $rows = generate_table('trucks');
-                         $rows = generate_dashboard();
+                        // $rows = generate_table('trucks');
+                        $rows = generate_dashboard();
 
-                        for($i=0;$i<count($rows); $i++){
+                        for ($i = 0; $i < count($rows); $i++) {
                             echo "<tr>";
-                            echo "<th scope='row'>". ($i+1) ."</th>";
-                            echo "<td>".$rows[$i]['driver']."</td>";
-                            echo "<td>".$rows[$i]['truck']."</td>";
+                            echo "<th scope='row'>" . ($i + 1) . "</th>";
+                            echo "<td>" . $rows[$i]['driver'] . "</td>";
+                            echo "<td>" . $rows[$i]['truck'] . "</td>";
                             echo "</tr>";
-                          }
+                        }
 
                         ?>
-                       </tbody>
+                    </tbody>
                 </table>
 
             </div>
@@ -78,50 +79,47 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
                         </tr>
                     </thead>
                     <tbody>
-                    <?php
+                        <?php
                         $rows = generate_table('trucks');
 
-                        for($i=0;$i<count($rows);$i++) {
+                        for ($i = 0; $i < count($rows); $i++) {
                             echo "<tr>";
-                            echo "<th scope='col'>".($i+1)."</th>";
-                            echo "<td>".$rows[$i]['name']."</td>";
+                            echo "<th scope='col'>" . ($i + 1) . "</th>";
+                            echo "<td>" . $rows[$i]['name'] . "</td>";
                             echo "<td> <button class='btn btn-danger' onclick='(function(){
-                                        location.href = \"delete/delete_truck.php?id=".$rows[$i]['id']."\"})()'>X</button>";
+                                        location.href = \"delete/delete_truck.php?id=" . $rows[$i]['id'] . "\"})()'>X</button>";
                             echo "</tr>";
-                                  
                         }
-                    ?>
-                        
-                        
+                        ?>
+
+
                     </tbody>
                 </table>
                 <form action="trucks.php" enctype="multipart/form-data" method="POST" class="text-white d-flex justify-content-between align-items-center">
-                        <div id="forms">
-                            <p>Nazwa: <input type="text" name="truck" id="truck" class="form-control mb-3 col-8"
-                            placeholder="Nazwa" required>
-                            </p>
-                            <p>
-                            <textarea name="description" id="description" cols="30" rows="3" placeholder="Opis" ></textarea>
-                           </p>
-                           <p>
+                    <div id="forms">
+                        <p>Nazwa: <input type="text" name="truck" id="truck" class="form-control mb-3 col-8"
+                                placeholder="Nazwa" required>
+                        </p>
+                        <p>
+                            <textarea name="description" id="description" cols="30" rows="3" placeholder="Opis"></textarea>
+                        </p>
+                        <p>
                             Zdjęcie: <input type="file" name="photo_truck" id="photo_truck" required>
-                            </p>
-                            <div class="mt-3">
+                        </p>
+                        <div class="mt-3">
                             Kierowca: <select name="driver" id="driver">
                                 <option value="">Kierowca</option>
 
                                 <?php
-                             $rows = generate_table('drivers');
+                                $rows = generate_table('drivers');
 
-                             for($i=0;$i<count($rows);$i++) {
-                                echo "<option value=\"".$rows[$i]['id']."\">".$rows[$i]['name']."</option>";
-                              
-                                  
-                        }
-                    ?>
+                                for ($i = 0; $i < count($rows); $i++) {
+                                    echo "<option value=\"" . $rows[$i]['id'] . "\">" . $rows[$i]['name'] . "</option>";
+                                }
+                                ?>
                             </select>
-                            </div>
                         </div>
+                    </div>
                     <button class="btn btn-success">DODAJ</button>
                 </form>
             </div>
@@ -135,35 +133,34 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
                         </tr>
                     </thead>
                     <tbody>
-                    <?php
+                        <?php
                         $rows = generate_table('drivers');
 
-                        for($i=0;$i<count($rows);$i++) {
+                        for ($i = 0; $i < count($rows); $i++) {
                             echo "<tr>";
-                            echo "<th scope='col'>".($i+1)."</th>";
-                            echo "<td>".$rows[$i]['name']."</td>";
+                            echo "<th scope='col'>" . ($i + 1) . "</th>";
+                            echo "<td>" . $rows[$i]['name'] . "</td>";
                             echo "<td> <button class='btn btn-danger' onclick='(function(){
-                                        location.href = \"delete/delete_driver.php?id=".$rows[$i]['id']."\"})()'>X</button>";
+                                        location.href = \"delete/delete_driver.php?id=" . $rows[$i]['id'] . "\"})()'>X</button>";
                             echo "</tr>";
-                                  
                         }
-                    ?>
+                        ?>
                     </tbody>
                 </table>
                 <form action="drivers.php" enctype="multipart/form-data" method="POST" class="text-white d-flex justify-content-between align-items-center">
-                        <div id="forms">
-                            <p>
-                            Imię: <input type="text" name="driver" id="driver" 
-                            placeholder="Imię" required>
-                            </p>
-                            <p>
-                            <textarea name="description" id="description" cols="30" rows="3" placeholder="Opis" ></textarea>
-                            </p>
-                            <p>
-                            Zdjęcie: <input type="file" name="photo_driver"  id="photo_driver" reguired>
-                            </p>
-                           
-                        </div>
+                    <div id="forms">
+                        <p>
+                            Imię: <input type="text" name="driver" id="driver"
+                                placeholder="Imię" required>
+                        </p>
+                        <p>
+                            <textarea name="description" id="description" cols="30" rows="3" placeholder="Opis"></textarea>
+                        </p>
+                        <p>
+                            Zdjęcie: <input type="file" name="photo_driver" id="photo_driver" reguired>
+                        </p>
+
+                    </div>
                     <button class="btn btn-success">DODAJ</button>
                 </form>
             </div>
