@@ -38,14 +38,14 @@ if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
         </div>
     </div>
     <div class="container mt-5 pb-4">
-        <h4 class="text-center mt-3 mb-3 p-4">Kierowcy i ich ciężarówki</h1>
+        <h4 class="text-center mt-3 mb-3 p-4">Kierowcy i samochody</h1>
             <div class="row">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col"></th>
                             <th scope="col">Kierowca</th>
-                            <th scope="col">Ciężarówka</th>
+                            <th scope="col">Samochód</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -74,7 +74,7 @@ if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
                     <thead>
                         <tr>
                             <th scope="col"></th>
-                            <th scope="col">Ciężarówka</th>
+                            <th scope="col">Samochód</th>
                             <th scope="col">Usuń</th>
                         </tr>
                     </thead>

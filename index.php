@@ -31,7 +31,7 @@ require_once('admin/functions.php');
 
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ">
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
@@ -47,7 +47,7 @@ require_once('admin/functions.php');
                 </ul>
                 <div class="col-12 d-flex  justify-content-left p-3 ml-auto">
 
-                    <a class="btn btn-secondary p-1 ml-auto" href="admin/login.html">Zaloguj</a>
+                    <a class="btn btn-secondary p-1" href="admin/login.html">Zaloguj</a>
 
                 </div>
             </div>
@@ -62,7 +62,7 @@ require_once('admin/functions.php');
                 <div class="col-12 text-center">
                     <div class="im1 p-5 ">
                         <a>
-                            <img class="img-fluid isi" src="assets/logo.png" alt="logo" width="150" height="150">
+                            <img class="img-fluid isi" src="assets/logo2.png" alt="logo" width="250" height="150">
                         </a>
                     </div>
 
@@ -89,7 +89,7 @@ require_once('admin/functions.php');
                 foreach ($rows as $r) {
                     echo "<div class='col-lg-3 col-md-5 m-3'>
                     <div class='avatar mx-auto'>
-                    <img src='admin/" . $r['photo_url'] . "'class='w-100' alt='truck'>
+                    <img src='admin/" . $r['photo_url'] . "'class='w-100 h-75' alt='truck'>
                     <div class='card-body'>
                     <h4 class = 'text-center p-3'>" . $r['name'] . "</h4>
                     <p class='text-center'>" . $r['description'] . "</p>

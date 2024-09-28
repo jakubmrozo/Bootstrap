@@ -1,4 +1,5 @@
 <?php
+// zmienna tablicowa
 if (!empty($_POST)) {
 
     //uruchamiamy sesje
